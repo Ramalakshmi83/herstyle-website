@@ -8,11 +8,13 @@ body {
 /* HEADER */
 .header{
     background:#fdfcfa;
-    padding:1px;
+    padding: 10px 20px;
     color:#d4af37;
     display:flex;
     align-items:center;
+    justify-content: space-between;   /* IMPORTANT */
     width:100%;
+    box-sizing: border-box;
 }
 .logo {
     display: flex;
@@ -31,6 +33,11 @@ body {
 .logo:hover {
     transform: scale(1.03);
 }
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
 .nav-buttons button {
     padding: 5px 10px;
     border-color: black;
@@ -74,10 +81,12 @@ body {
     padding: 8px 12px 8px 15px;
     border-radius: 2px;
     border: 1px solid #D4AF37;
-    width: 400px;
+    width: 100%;   /* change from 400px */
+    max-width: 400px; /* add this */
     height: 25px;
     font-size: 15px;
 }
+
 .search-box i {
     position: absolute;
     right: 0px;
@@ -335,6 +344,7 @@ body {
         align-items: center;
         gap: 8px;
         margin-top: 10px;
+        
     }
 
     .nav-buttons a {
