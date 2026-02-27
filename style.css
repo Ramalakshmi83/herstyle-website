@@ -315,3 +315,36 @@ body {
     font-size: 20px;
     cursor: pointer;
 }
+
+/* ===== MOBILE RESPONSIVE HEADER ===== */
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .nav-buttons a {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .search-box {
+        width: 90%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+}
