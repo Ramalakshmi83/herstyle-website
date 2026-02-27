@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+    <style>
+        #cartItems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .cart-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .cart-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cart-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            width: 48%;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg,#ff4d94,#ff85b3);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg,#e60073,#ff4d94);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .remove-btn {
+            background: linear-gradient(45deg,#777,#aaa);
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center; font-weight:bold;background-color:rgb(250, 245, 217)">🛒 My Cart</h2>
+
+<div id="cartItems"></div>
+
+<script>
+    // ===== DISPLAY CART ITEMS =====
+    function displayCart() {
+        const container = document.getElementById("cartItems");
+        container.innerHTML = "";
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if(cart.length === 0){
+            container.innerHTML = "<p>No items in cart</p>";
+            return;
+        }
+
+        cart.forEach(item => {
+            if(!item.image || typeof item.image !== "string") return;
+
+            container.innerHTML += `
+                <div class="cart-card">
+                    <img src="images/${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>₹${item.price}</p>
+                    <p>Quantity: ${item.qty}</p>
+                    <button onclick="addToCart('${item.name}')">
+                        Add More 🛒
+                    </button>
+                    <button class="remove-btn" onclick="removeFromCart('${item.name}')">
+                        Remove ❌
+                    </button>
+                </div>
+            `;
+        });
+    }
+
+    // ===== ADD MORE QUANTITY =====
+    function addToCart(name){
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let item = cart.find(p => p.name === name);
+
+        if(item){
+            item.qty += 1;
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCart();
+    }
+
+    // ===== REMOVE ITEM =====
+    function removeFromCart(name){
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter(item => item.name !== name);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCart();
+    }
+
+    document.addEventListener("DOMContentLoaded", displayCart);
+</script>
+
+</body>
+</html>

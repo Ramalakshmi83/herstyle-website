@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HerStyle</title>
+
+    <!-- App Icon -->
+    <link rel="icon" href="images/app-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#e91e63">
+<!-- Font Awesome for icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- ================= HEADER ================= -->
+ <body>
+<header class="header">
+
+    <!-- Logo -->
+     <a href="index.html" class="logo">
+    <img src="images/app-icon.png">
+    <span style="color:rgb(209, 162, 8); margin-left:5px; font-size:35px; font-style:italic;">
+HerStyle
+</span>
+</a>
+    <!-- Search Bar with Icon -->
+    <div class="search-box">
+    <i class="fa fa-search"></i>
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search bangles, dresses..." 
+        onkeyup="searchProducts()"
+        autocomplete="off"
+    >
+    <div id="suggestionBox" class="suggestion-box"></div>
+</div>
+
+<p id="noResults" style="text-align:center; display:none; font-size:20px;">
+    🔍 No products found
+</p>
+    <!-- Wishlist Icon -->
+    <div class="header-wishlist" onclick="openWishlist()">
+    🩷
+    </div>
+    <div class="header-icons">
+        <a href="add-to-cart.html">
+        <img src="images/Add-To-Cart.png" class="icon" title="Cart">
+        </a>
+        <!-- Login -->
+       <a href="login.html">
+        <img src="images/login.jpg" class="icon" title="Login">
+    </a></div>
+    <!-- Category Buttons -->
+<div class="nav-buttons">
+
+    <a href="index.html">
+        <button>Home</button>
+    </a>
+
+    <a href="bangles.html">
+        <button>Bangles</button>
+    </a>
+
+    <a href="dresses.html">
+        <button>Dresses</button>
+    </a>
+
+    <a href="accessories.html">
+        <button>Accessories</button>
+    </a>
+
+</div>
+</header>
+
+<!-- =============== HEADER END =============== -->
+<h2 class="title" style="color: rgb(247, 37, 128); font-size:25px; font-style:italic">Women Fashion</h2>
+  <!-- SLIDER / BANNER -->
+    <section class="hero-slider">
+        <img src="images/slide1.png" alt="HerStyle Banner">
+    </section>
+    
+   <!-- ================= PRODUCTS ================= -->
+<div class="products">
+    <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+                <img src="images/Bangles-1.webp"
+     onclick="goToCheckout('Bangles',500,'Bangles-1.webp')"
+     style="cursor:pointer;">
+                <i class="fa-regular fa-heart wishlist-icon"
+       onclick="event.stopPropagation(); toggleWishlist(this,201,'Bangles',500,'Bangles-1.webp')">
+    </i>
+     </div>
+        <h3>Bangles</h3>
+        <p>₹500</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Bangles', 500, 'Bangles-1.webp')">
+ADD TO CART
+</button>
+</div>
+<div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-2.jpg"
+            onclick="goToCheckout('Golden Bangles',920,'Bangles-2.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 202, 'Golden Bangles', 920, 'Bangles-2.jpg')"></i>
+        </div>
+        <h3>Golden Bangles</h3>
+        <p>₹920</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Golden Bangles', 920, 'Bangles-2.jpg')">
+ADD TO CART
+</button>
+</div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-3.webp"
+            onclick="goToCheckout('Glass Bangles',590,'Bangles-3.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,203, 'Glass Bangles', 590, 'Bangles-3.webp')"></i>
+        </div>
+        <h3>Glass Bangles</h3>
+        <p>₹590</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Glass Bangles', 590, 'Bangles-3.webp')">
+ADD TO CART
+</button>
+</div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-4.jpg"
+            onclick="goToCheckout('Bangles',640,'Bangles-4.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,204, 'Bangles', 640, 'Bangles-4.jpg')"></i>
+        </div>
+        <h3> Bangles</h3>
+        <p>₹640</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Bangles', 640, 'Bangles-4.jpg')">
+ADD TO CART
+</button>
+</div>
+<a href="out-of-stock-bangles.html" style="text-decoration:none; color:inherit;">
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-5.jpg"
+            onclick="goToCheckout('Stone Bangles',860,'Bangles-5.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,205,'Stone Bangles', 860, 'Bangles-5.jpg')"></i>
+        </div>
+        <h3>Stone Bangles</h3>
+        <p>₹860</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Stone Bangles', 860, 'Bangles-5.jpg')">
+ADD TO CART
+</button>
+    </div>
+</a>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-6.webp"
+            onclick="goToCheckout('Bangles',1250,'Bangles-6.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,206, 'Bangles', 1250, 'Bangles-6.webp')"></i>
+        </div>
+        <h3> Bangles</h3>
+        <p>₹1,250</p>
+        <button class="add-cart-btn"
+onclick="addToCart(' Bangles', 1250, 'Bangles-6.webp')">
+ADD TO CART
+</button>
+ </div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-7.jpg"
+            onclick="goToCheckout('Bangles',1320,'Bangles-7.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,207, 'Bangles', 1320, 'Bangles-7.jpg')"></i>
+        </div>
+        <h3> Bangles</h3>
+        <p>₹1,320</p>
+        <button class="add-cart-btn"
+onclick="addToCart(' Bangles', 1320, 'Bangles-7.jpg')">
+ADD TO CART
+</button>
+</div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-8.webp"
+            onclick="goToCheckout('Stone Bangles',2280,'Bangles-8.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,208, 'Stone Bangles', 2280, 'Bangles-8.webp')"></i>
+        </div>
+        <h3>Stone Bangles</h3>
+        <p>₹2,280</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Stone Bangles', 2280, 'Bangles-8.webp')">
+ADD TO CART
+</button>
+
+    </div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-9.jpg"
+            onclick="goToCheckout('Silver Bangles', 1350, 'Bangles-9.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 209, 'Silver Bangles', 1350, 'Bangles-9.jpg')"></i>
+        </div>
+        <h3>Silver Bangles</h3>
+        <p>₹1,350</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Silver Bangles', 1350, 'Bangles-9.jpg')">
+ADD TO CART
+</button>
+
+    </div>
+     <div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-10.jpg"
+            onclick="goToCheckout('Golden Bangles', 899, 'Bangles-10.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 210, 'Golden Bangles', 899, 'Bangles-10.jpg')"></i>
+        </div>
+        <h3>Golden Bangles</h3>
+        <p>₹890</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Golden Bangles', 890, 'Bangles-10.jpg')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-11.webp"
+            onclick="goToCheckout('Gold Bangles', 1190, 'Bangles-11.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,211, 'Gold Bangles', 1190, 'Bangles-11.webp')"></i>
+        </div>
+        <h3>Gold Bangles</h3>
+        <p>₹1190</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Gold Bangles', 1190, 'Bangles-11.webp')">
+ADD TO CART
+</button>
+</div>
+<div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-12.webp"
+            onclick="goToCheckout('Plastic Bangles', 1590, 'Bangles-12.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,212, 'Plastic Bangles', 1590, 'Bangles-12.webp')"></i>
+        </div>
+        <h3>Plastic Bangles</h3>
+        <p>₹1590</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Plastic Bangles', 1590, 'Bangles-12.webp')">
+ADD TO CART
+</button>
+</div>
+<div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-13.webp"
+            onclick="goToCheckout('Gold Bangles', 1260, 'Bangles-13.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,213, 'Gold Bangles', 1260, 'Bangles-13.webp')"></i>
+        </div>
+        <h3> Gold Bangles</h3>
+        <p>₹1260</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Gold Bangles', 590, 'Bangles-13.webp')">
+ADD TO CART
+</button>
+</div>
+<div class="product-card" data-category="Bangles">
+        <div class="image-box">
+            <img src="images/Bangles-14.webp"
+            onclick="goToCheckout('Gold Bangles', 1300, 'Bangles-14.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,214, 'Gold Bangles', 1300, 'Bangles-14.webp')"></i>
+        </div>
+        <h3>Gold Bangles</h3>
+        <p>₹1300</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Gold Bangles', 1300, 'Bangles-14.webp')">
+ADD TO CART
+</button>
+</div>
+</div>
+<section class="hero-slider">
+        <img src="images/slide2.png" alt="HerStyle Banner">
+    </section>
+    <div class="products">
+    
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-1.webp"
+            onclick="goToCheckout('Accessories', 650, 'accessories-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,215,'Accessories', 650, 'accessories-1.webp')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹650</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 650, 'accessories-1.webp')">
+ADD TO CART
+</button>
+
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-2.webp" 
+            onclick="goToCheckout('Accessories', 840, 'accessories-2.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,216, 'Accessories', 840, 'accessories-2.webp')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹840</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 840, 'accessories-2.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-3.jpg"
+             onclick="goToCheckout('Accessories', 970, 'accessories-2.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,217,'Accessories', 970, 'accessories-3.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹970</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 970, 'accessories-3.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-4.webp"
+             onclick="goToCheckout('Accessories', 780, 'accessories-4.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,218,'Accessories', 780, 'accessories-4.webp')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹780</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 780, 'accessories-4.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-5.jpg" 
+            onclick="goToCheckout('Accessories', 980, 'accessories-5.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,219, 'Accessories', 980, 'accessories-5.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹980</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 980, 'accessories-5.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-6.jpg"
+             onclick="goToCheckout('Accessories', 87, 'accessories-6.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,220, 'Accessories', 870, 'accessories-6.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹870</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 870, 'accessories-6.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <a href="out-of-stock-accessories.html" style="text-decoration:none; color:inherit;">
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-7.jpg"
+             onclick="goToCheckout('Accessories', 630, 'accessories-7.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,221, 'Accessories', 630, 'accessories-7.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹630</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 630, 'accessories-7.jpg')">
+ADD TO CART
+</button>
+    </div>
+    </a>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-8.jpg"
+             onclick="goToCheckout('Accessories', 740, 'accessories-8.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,222,'Accessories', 740, 'accessories-8.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹740</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 740, 'accessories-8.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-9.jpg"
+             onclick="goToCheckout('Accessories', 940, 'accessories-9.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,223,'Accessories', 940, 'accessories-1.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹940</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 940, 'accessories-9.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-10.webp"
+             onclick="goToCheckout('Accessories', 650, 'accessories-10.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,224, 'Accessories', 650, 'accessories-10.webp')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹650</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 650, 'accessories-10.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-11.jpg" 
+            onclick="goToCheckout('Accessories', 960, 'accessories-11.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,225,'Accessories', 960, 'accessories-11.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹960</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 960, 'accessories-11.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/Belt-1.webp"
+             onclick="goToCheckout('Accessories', 350, 'Belt-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,226, 'Stylish Belt', 350, 'Belt-1.webp')"></i>
+        </div>
+        <h3>Stylish Belt</h3>
+        <p>₹350</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 350, 'Belt-1.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-12.webp"
+             onclick="goToCheckout('Accessories', 890, 'accessories-12.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,227,'Accessories', 890, 'accessories-8.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹890</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 890, 'accessories-12.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Accessories">
+        <div class="image-box">
+            <img src="images/accessories-13.jpg"
+             onclick="goToCheckout('Accessories', 1200, 'accessories-13.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,228,'Accessories', 1200, 'accessories-13.jpg')"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>₹1200</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Accessories', 1200, 'accessories-13.jpg')">
+ADD TO CART
+</button>
+    </div>
+    </div>
+    <section class="hero-slider">
+        <img src="images/slide3.png" alt="HerStyle Banner">
+    </section>
+    <div class="products">
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-1.webp"
+             onclick="goToCheckout('Party Dress', 650, 'Dress-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,229, 'Party Dress', 650, 'Dress-1.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1800</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1800, 'Dress-1.webp')">
+ADD TO CART
+</button>
+    </div>
+      <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-2.jpg"
+            onclick="goToCheckout('Party Dress', 1700, 'Dress-2.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,230, 'Party Dress', 1700, 'Dress-2.jpg')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1700</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1700, 'Dress-2.jpg')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-3.webp"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-3.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,231, 'Party Dress', 1900, 'Dress-3.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1900</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1900, 'Dress-3.webp')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-4.webp"
+            onclick="goToCheckout('Party Dress', 1200, 'Dress-4.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,232, 'Party Dress', 1200, 'Dress-4.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1200</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1200, 'Dress-4.webp')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-5.webp"
+            onclick="goToCheckout('Party Dress', 1400, 'Dress-5.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,233,'Party Dress', 1400, 'Dress-5.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1400</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1400, 'Dress-5.webp')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-6.webp"
+            onclick="goToCheckout('Party Dress', 1600, 'Dress-6.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,234, 'Party Dress', 1600, 'Dress-6.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1600</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1600, 'Dress-6.webp')">
+ADD TO CART
+</button>
+    </div>
+     <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-8.jpeg"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-8.jpeg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,235, 'Party Dress', 1900, 'Dress-8.jpeg')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1900</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1900, 'Dress-8.jpeg')">
+ADD TO CART
+</button>
+    </div>
+   <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-9.jpeg"
+            onclick="goToCheckout('Party Dress', 2400, 'Dress-9.jpegs')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,236, 'Party Dress', 2400, 'Dress-9.jpeg')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹2,400</p>
+       <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 2400, 'Dress-9.jpeg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-10.jpg"
+            onclick="goToCheckout('Beautiful', 2500, 'Dress-10.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,237, 'Beautiful', 2500, 'Dress-10.jpg')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹2,500</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 2500, 'Dress-10.jpg')">
+ADD TO CART
+</button>
+    </div>
+      <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-11.jpg"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-11.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,238, 'Party Dress', 1900, 'Dress-11.jpg')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1900</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1900, 'Dress-11.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <a href="out-of-stock-dresses.html" style="text-decoration:none; color:inherit;">
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-12.webp"
+            onclick="goToCheckout('Party Dress', 1800, 'Dress-12.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,239,'Party Dress', 1800, 'Dress-12.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1800</p>
+       <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1800, 'Dress-12.webp')">
+ADD TO CART
+</button>
+    </div>
+    </a>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-13.webp"
+            onclick="goToCheckout('Party Dress', 1600, 'Dress-13.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,240, 'Party Dress', 1600, 'Dress-13.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1600</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1600, 'Dress-13.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-14.jpg"
+            onclick="goToCheckout('Party Dress', 2100, 'Dress-14.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,241, 'Beautiful', 2100, 'Dress-14.jpg')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹2,100</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 2100, 'Dress-14.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-15.webp"
+            onclick="goToCheckout('Party Dress', 1500, 'Dress-15.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,242, 'Beautiful', 1500, 'Dress-15.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1500</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1500, 'Dress-15.webp')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-1.webp"
+            onclick="goToCheckout('Beautiful', 2200, 'Saree-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,243, 'Beautiful', 2200, 'Saree-1.webp')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹2,200</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 2200, 'Saree-1.webp')">
+ADD TO CART
+</button> 
+</div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-2.webp"
+            onclick="goToCheckout('Beautiful', 2000, 'Saree-2.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,244, 'Beautiful', 2000, 'Saree-2.webp')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹2000</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 2000, 'Saree-2.webp')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-3.webp"
+            onclick="goToCheckout('Beautiful', 1900, 'Saree-3.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,245,'Beautiful', 1900, 'Saree-3.webp')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹1900</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 1900, 'Saree-3.webp')">
+ADD TO CART
+</button>
+    </div>
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-4.webp"
+            onclick="goToCheckout('Beautiful', 1500, 'Saree-4.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,246,'Beautiful', 1500, 'Saree-4.webp')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹1500</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 1500, 'Saree-4.webp')">
+ADD TO CART
+</button>    
+</div>
+<a href="out-of-stock-dresses.html" style="text-decoration:none; color:inherit;">
+<div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-5.jpg"
+            onclick="goToCheckout('Beautiful', 1800, 'Saree-5.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,247, 'Beautiful', 1800, 'Saree-5.jpg')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹1800</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 1800, 'Saree-5.jpg')">
+ADD TO CART
+</button>
+    </div>
+</a>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Saree-6.jpg"
+            onclick="goToCheckout('Beautiful', 1900, 'Saree-6.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,248, 'Beautiful', 1900, 'Saree-6.jpg')"></i>
+        </div>
+        <h3>Beautiful</h3>
+        <p>₹1900</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Beautiful', 1900, 'Saree-6.jpg')">
+ADD TO CART
+</button>
+    </div>
+    <div class="product-card" data-category="Dresses">
+        <div class="image-box">
+            <img src="images/Dress-7.webp"
+            onclick="goToCheckout('Party Dress', 1800, 'Dress-7.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,249, 'Party Dress', 1800, 'Dress-7.webp')"></i>
+        </div>
+        <h3>Party Dress</h3>
+        <p>₹1800</p>
+        <button class="add-cart-btn"
+onclick="addToCart('Party Dress', 1800, 'Dress-7.webp')">
+ADD TO CART
+</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

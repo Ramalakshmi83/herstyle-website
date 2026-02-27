@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fdf5db;
+}
+
+
+/* HEADER */
+.header{
+    background:#fdfcfa;
+    padding:1px;
+    color:#d4af37;
+    display:flex;
+    align-items:center;
+    width:100%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    color: #D4AF37;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    padding-left: 15px;
+}
+.logo:hover {
+    transform: scale(1.03);
+}
+.nav-buttons button {
+    padding: 5px 10px;
+    border-color: black;
+    border-radius: 20px;
+    background:rgb(247, 37, 128);
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 10px;
+}
+.nav-buttons:hover {
+    transform: scale(1.03);
+}
+.nav-buttons a {
+    text-decoration: none;
+}
+
+.search-box {
+    position: relative;
+    padding-left: 30px;
+    
+}
+.suggestion-box{
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    display: none;
+    z-index: 1000;
+}
+
+.suggestion-box div{
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestion-box div:hover{
+    background: #f2f2f2;
+}
+.search-box input {
+    padding: 8px 12px 8px 15px;
+    border-radius: 2px;
+    border: 1px solid #D4AF37;
+    width: 400px;
+    height: 25px;
+    font-size: 15px;
+}
+.search-box i {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width:60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+    height: 42px;
+    background-color: goldenrod;
+    border-radius: 2px;
+    font-size: 35px;
+}
+.search-box i:hover{
+    background-color: rgb(161, 116, 2);
+}
+.search-box:hover {
+    transform: scale(1.03);
+}
+.header-wishlist {
+    font-size: 40px;
+    color: #D4AF37;
+    cursor: pointer;
+    padding-right:20px;
+    margin-left: 15px;
+    margin-top: 0px;
+}
+.header-wishlist:hover {
+    transform: scale(1.03);
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+.header-icons .icon {
+    width: 45px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding-right: 10px;
+}
+
+.header-icons .icon:hover {
+    transform: scale(1.03);
+}
+.title {
+    text-align: center;
+    color: #D4AF37;
+}
+.title:hover {
+    transform: scale(1.03);
+}
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+}
+.hero-slider:hover{
+    transform: scale(1.03);
+    transition: transform 0.3s
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: #4a0037;
+    max-width: 450px;
+}
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+.hero-content button {
+    padding: 15px 25px;
+    background: rgb(247, 37, 128);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: 450px;
+    margin-top: 620px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.hero-content button:hover{
+    transform: scale(1.03);
+}
+.slide.active {
+    opacity: 1;
+}
+/* PRODUCTS */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.product-card {
+    position: relative;
+}
+.product-card {
+    background: rgb(252, 248, 248);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.image-box {
+    position: relative;
+    cursor: pointer;
+}
+
+.image-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.wishlist-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 18px;
+    color: rgb(247, 37, 128);
+    cursor: pointer;
+    width: 50px;
+    z-index: 2;
+}
+
+.wishlist-icon.active {
+    color: rgb(247, 37, 128);
+}
+.cart-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+/* CHECKOUT */
+.checkout-box {
+    background: white;
+    max-width: 350px;
+    min-height: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.checkout-box input,
+.checkout-box select,
+.checkout-box textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px;
+}
+.add-cart-btn {
+    background-color:rgb(247, 37, 128);
+    color: white;
+    font-size: 13px;          /* BIG TEXT */
+    padding: 8px 15px;       /* BIG SIZE */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.add-cart-btn:hover {
+    transform: scale(1.03);
+    background-color: #333;
+}
+
+.add-cart-btn:active {
+    transform: scale(0.95);
+}
+.login-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.login-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+.login-content input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.login-content button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | HerStyle</title>
+
+    <link rel="icon" href="images/app-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+<div class="checkout-box">
+    <h2>Checkout</h2>
+
+    <!-- Product Image -->
+    <img id="productImage" class="checkout-img">
+
+    <label>Product Name</label>
+    <input type="text" id="productName" readonly>
+
+    <label>Price</label>
+    <input type="text" id="productPrice" readonly>
+
+    <label>Size</label>
+    <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+    </select>
+
+    <label>Quantity</label>
+    <input type="number" value="1" min="1">
+
+    <!-- FORM START -->
+    <form id="orderForm">
+        <label>Address</label>
+        <textarea rows="3" placeholder="Enter delivery address"></textarea>
+
+        <label>Payment Method</label>
+        <select>
+            <option>Cash on Delivery</option>
+            <option>UPI</option>
+            <option>Debit Card</option>
+            <option>Credit Card</option>
+        </select>
+
+        <button id="orderButton" type="submit">Place Order</button>
+    </form>
+    <!-- FORM END -->
+
+</div>
+
+<!-- SUCCESS POPUP -->
+<div id="orderPopup" class="popup-overlay">
+    <div class="popup-box">
+        <h3>Order Placed Successfully 🎉</h3>
+        <p>Your order has been confirmed.</p>
+        <button onclick="closePopup('orderPopup')">OK</button>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="popup-overlay">
+    <div class="popup-box error">
+        <h3>⚠️ Incomplete Details</h3>
+        <p>Please enter full details.</p>
+        <button onclick="closePopup('errorPopup')">OK</button>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+
+    // Set product details
+    document.getElementById("productName").value = params.get("name");
+    document.getElementById("productPrice").value = "₹" + params.get("price");
+    document.getElementById("productImage").src = "images/" + params.get("image");
+
+    const orderForm = document.getElementById("orderForm");
+
+    // Handle form submission
+    orderForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        const address = orderForm.querySelector("textarea").value.trim();
+
+        if (address === "") {
+            document.getElementById("errorPopup").style.display = "flex";
+        } else {
+            document.getElementById("orderPopup").style.display = "flex";
+        }
+    });
+
+    // Close popup function
+    window.closePopup = function(id) {
+        document.getElementById(id).style.display = "none";
+        if (id === "orderPopup") {
+            orderForm.reset(); // Clear form after successful order
+        }
+    }
+});
+</script>
+
+</body>
+</html>

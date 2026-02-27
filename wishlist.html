@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Wishlist</title>
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+
+<h2 style="text-align:center; font-style:bold; background-color:rgb(253, 249, 226)">🩷 My Wishlist</h2>
+
+<div id="wishlistItems"></div>
+
+<script>
+
+function displayWishlist() {
+    const container = document.getElementById("wishlistItems");
+    container.innerHTML = "";
+
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    if (wishlist.length === 0) {
+        container.innerHTML = "<p>No items in wishlist</p>";
+        return;
+    }
+
+    wishlist.forEach((item, index) => {
+
+        if (!item.image || typeof item.image !== "string" || item.image.trim() === "") {
+            return;
+        }
+
+        container.innerHTML += `
+            <div class="wishlist-card">
+                <img src="images/${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>₹${item.price}</p>
+                <button onclick="removeFromWishlist(${index})">
+                    Remove ❌
+                </button>
+            </div>
+        `;
+    });
+}
+/* REMOVE FROM WISHLIST */
+function removeFromWishlist(index){
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    wishlist.splice(index, 1);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    displayWishlist();
+}
+
+/* LOAD WISHLIST */
+document.addEventListener("DOMContentLoaded", () => {
+    displayWishlist();
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Details</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* Card */
+.product-card{
+    background:white;
+    width:200px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    text-align:center;
+    padding:20px;
+    margin-left: 70px;
+}
+.product-card:hover{
+    transform: scale(1.03);
+}
+
+/* Image Box */
+.image-box{
+    position:relative;
+}
+
+.image-box img{
+    width:70%;
+    border-radius:10px;
+    margin-top: 35px;
+}
+
+/* Out of Stock Tag */
+.out-tag{
+   position:absolute;
+    top:13px;
+    left:30px;
+    background:red;
+    color:white;
+    padding:5px 10px;
+    font-size:10px;
+    font-weight:bold;
+    border-radius:4px;
+}
+/* Details */
+h2{
+    margin:15px 0 5px;
+}
+
+.price{
+    font-size:20px;
+    color:#444;
+    margin-bottom:15px;
+}
+
+/* Button */
+button{
+    width:100%;
+    background:#ccc;
+    border:none;
+    padding:12px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:not-allowed;
+}
+
+.desc{
+    margin-top:15px;
+    color:#666;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="product-card">
+
+    <div class="image-box">
+        <span class="out-tag">OUT OF STOCK</span>
+        <img src="images/Dress-12.webp">
+    </div>
+
+    <h2>Party Dress</h2>
+    <div class="price" style="color: black;">₹1800</div>
+
+    <button disabled style="color: black;">ADD TO CART</button>
+
+    <p class="desc" style="color: rgb(11, 1, 1);">
+        Trendy party wear dress with a modern and attractive design.
+Soft and comfortable fabric for long hours of wear.
+Ideal for parties, celebrations, and special occasions.
+    </p>
+
+</div>
+<div class="product-card">
+
+    <div class="image-box">
+        <span class="out-tag">OUT OF STOCK</span>
+        <img src="images/Saree-5.jpg">
+    </div>
+
+    <h2>Beautiful</h2>
+    <div class="price" style="color: black;">₹1800</div>
+
+    <button disabled style="color: black;">ADD TO CART</button>
+
+    <p class="desc" style="color: rgb(11, 1, 1);">
+        Trendy party wear saree with modern and attractive design.
+Lightweight fabric for comfort and stylish appearance.
+Suitable for parties, evening events, and celebrations.
+    </p>
+
+</div>
+</body>
+</html>

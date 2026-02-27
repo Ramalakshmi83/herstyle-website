@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HerStyle Login</title>
+
+<style>
+
+/* ===== BODY ===== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f4c836,#eed9e7);
+}
+
+/* ===== LOGIN CONTAINER ===== */
+.login-container {
+    width: 400px;
+    height: 420px;
+    padding: 50px 40px;
+    border-radius: 18px;
+    background: rgba(249, 245, 226, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* ===== INPUT ===== */
+input {
+    width: 65%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    width: 65%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    background: linear-gradient(90deg,#f4c836,#f4cee7);
+}
+
+/* ===== CAPTCHA ===== */
+.captcha-box {
+    background: #f1f1f1;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h2>Member Login</h2>
+
+    <input type="tel" id="username" placeholder="Mobile Number" maxlength="10">
+    <input type="password" id="password" placeholder="Password">
+
+    <div class="captcha-box" id="captchaText"></div>
+    <input type="text" id="captchaInput" placeholder="Enter Captcha">
+
+    <button onclick="loginUser()">Login</button>
+
+</div>
+
+
+<script>
+
+/* CAPTCHA */
+let captchaValue = "";
+
+function generateCaptcha() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    captchaValue = "";
+
+    for (let i = 0; i < 5; i++) {
+        captchaValue += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    document.getElementById("captchaText").innerText = captchaValue;
+}
+
+generateCaptcha();
+
+
+/* LOGIN FUNCTION */
+function loginUser(){
+
+    let mobile = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let captcha = document.getElementById("captchaInput").value.trim();
+
+    // Demo stored login credentials
+    const savedMobile = "9876543210";
+    const savedPassword = "12345";
+
+    if(mobile === "" || password === "" || captcha === ""){
+        alert("Enter full details");
+        return;
+    }
+
+    if(mobile.length !== 10 || isNaN(mobile)){
+        alert("Enter valid 10-digit mobile number");
+        return;
+    }
+
+    if(captcha !== captchaValue){
+        alert("Invalid Captcha");
+        generateCaptcha();
+        return;
+    }
+
+    if(mobile === savedMobile && password === savedPassword){
+        alert("Login Successful 🎉");
+    }else{
+        alert("Enter valid username or password");
+    }
+}
+
+</script>
+
+</body>
+</html>
