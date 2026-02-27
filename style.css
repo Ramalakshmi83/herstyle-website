@@ -316,35 +316,36 @@ body {
     cursor: pointer;
 }
 
-/* ===== MOBILE RESPONSIVE HEADER ===== */
 
-@media (max-width: 768px) {
+/* ===== MOBILE NAV FIX FOR YOUR STRUCTURE ===== */
+
+@media screen and (max-width: 768px) {
 
     .header {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     .nav-buttons {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
+        flex-direction: column;
         width: 100%;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
     }
 
     .nav-buttons a {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-
-    .search-box {
         width: 90%;
+        text-decoration: none;
     }
 
-    .search-box input {
+    .nav-buttons button {
         width: 100%;
+        padding: 8px;
+        font-size: 14px;
     }
 
 }
