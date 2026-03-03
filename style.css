@@ -11,8 +11,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;   /* IMPORTANT */
-    gap: 10px;
+    flex-wrap: nowrap;   /* IMPORTANT */
+    overflow-x: auto;    /* prevents cutting */
 }
 /* ================= LOGO ================= */
 
@@ -30,12 +30,9 @@ body {
 /* ================= SEARCH BOX ================= */
 
 .search-box {
-    position: relative;
-    flex: 1;              /* makes it flexible */
-    min-width: 200px;
-    max-width: 400px;
+    width: 300px;
+    flex-shrink: 0;
 }
-
 .search-box input {
     width: 100%;
     height: 40px;
@@ -56,7 +53,7 @@ body {
 /* ================= WISHLIST ================= */
 
 .header-wishlist {
-    font-size: 35px;
+    font-size: 24px;
     cursor: pointer;
     margin-left: 10px;   /* only 10px gap */
     display: flex;
@@ -92,7 +89,6 @@ body {
     background: #ff5c8a;
     border: none;
     padding: 6px 14px;
-    margin-right: 25px;
     border-radius: 20px;
     color: white;
     font-size: 13px;
@@ -135,15 +131,14 @@ body {
 
 /* HERO SLIDER */
 .hero-slider {
-    position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;   /* Perfect responsive ratio */
-    overflow: hidden;
+    height: auto;
 }
+
 .hero-slider img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
 }
 /* PRODUCTS */
 .products {
@@ -276,34 +271,3 @@ body {
 }
 
 
-/* ===== MOBILE NAV FIX FOR YOUR STRUCTURE ===== */
-
-@media screen and (max-width: 768px) {
-
-    .header {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-box {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .header-icons {
-        justify-content: center;
-    }
-
-    .nav-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-buttons button {
-        width: 100%;
-    }
-
-    .hero-slider {
-        height: 40vh;
-    }
-}
