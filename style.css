@@ -3,67 +3,114 @@ body {
     font-family: Arial, sans-serif;
     background: #fdf5db;
 }
-
-
 /* HEADER */
-.header{
-    background:#fdfcfa;
-    padding: 10px 20px;
-    color:#d4af37;
-    display:flex;
-    align-items:center;
-    justify-content: space-between;   /* IMPORTANT */
-    width:100%;
-    box-sizing: border-box;
-    gap:0;
-    margin: 0;
+
+.header {
+    background: #fdfcfa;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;              /* IMPORTANT: 10px gap everywhere */
 }
+
+/* ================= LOGO ================= */
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 10px;
-    color: #D4AF37;
+    text-decoration: none;
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    padding-left:0px;
+    width: 40px;
+    height: 40px;
 }
-.logo:hover {
-    transform: scale(1.03);
+
+/* ================= SEARCH BOX ================= */
+
+.search-box {
+    position: relative;
+    width: 400px;   /* adjust if needed */
 }
-.nav-buttons {
+
+.search-box input {
+    width: 100%;
+    height: 40px;
+    padding: 0 45px 0 12px;   /* space for icon */
+    border: 1px solid #ccc;
+    border-radius: 2%;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* 🔥 THIS FIXES RIGHT END PERFECTLY */
+.search-box i {
+    position: absolute;
+    top: 0;
+    right: 0;                 /* EXACT LAST RIGHT */
+    height: 100%;
+    width: 45px;
+    background: goldenrod;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 2% 2% 0;  /* match input */
+    cursor: pointer;
+}
+/* ================= WISHLIST ================= */
+
+.header-wishlist {
+    font-size: 35px;
+    cursor: pointer;
+    margin-left: 10px;   /* only 10px gap */
     display: flex;
     align-items: center;
 }
+/* ================= HEADER ICONS ================= */
 
-.nav-buttons button {
-    padding: 5px 10px;
-    border-color: black;
-    border-radius: 20px;
-    background:rgb(247, 37, 128);
-    color: white;
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;    /* 10px gap */
+}
+
+.header-icons .icon {
+    width: 45px;
+    height: 45px;
     cursor: pointer;
-    margin-left: 15px;
-    font-size: 10px;
 }
-.nav-buttons:hover {
-    transform: scale(1.03);
+
+/* ================= NAV BUTTONS ================= */
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;     /* 10px gap */
 }
+
 .nav-buttons a {
     text-decoration: none;
 }
 
-.search-box {
-    position: relative;
-    padding-right: 30px;
-
-    
+.nav-buttons button {
+    background: #ff5c8a;
+    border: none;
+    padding: 6px 14px;
+    margin-right: 25px;
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
 }
-.suggestion-box{
+
+.nav-buttons button:hover {
+    background: #e14a74;
+}
+
+
+/* SUGGESTION BOX */
+.suggestion-box {
     position: absolute;
     width: 100%;
     background: white;
@@ -72,91 +119,36 @@ body {
     z-index: 1000;
 }
 
-.suggestion-box div{
+.suggestion-box div {
     padding: 8px;
     cursor: pointer;
 }
 
-.suggestion-box div:hover{
+.suggestion-box div:hover {
     background: #f2f2f2;
 }
-.search-box input {
-    padding: 8px 12px 8px 15px;
-    border-radius: 2px;
-    border: 1px solid #D4AF37;
-    width: 100%;   /* change from 400px */
-    max-width: 400px; /* add this */
-    height: 25px;
-    font-size: 15px;
-}
- .search-box i {
-    position: absolute;
-    margin-left: 100px;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 41px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: goldenrod;
-    color: white;
-    border-radius: 5%; 
-    font-size: 20px; /* icon size */
-    cursor: pointer;
-    }
-.search-box i:hover{
-    background-color: rgb(161, 116, 2);
-}
-.search-box:hover {
-    transform: scale(1.03);
-}
-.header-wishlist { 
-        position: absolute; 
-        top: 8px;
-         font-size: 35px; 
-         color: rgb(247, 37, 128); 
-         cursor: pointer; 
-         width: 50px; 
-         padding-left: 468px;
-    }
-.header-wishlist:hover {
-    transform: scale(1.03);
-}
 
-.header-icons {
-    display: flex;
-    gap: 5px;
-    padding-right: 250px;
-    padding-left: 30px;
-}
-.header-icons .icon {
-    width: 45px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    padding-right: 10px;
-}
-
-.header-icons .icon:hover {
-    transform: scale(1.03);
-}
+/* TITLE */
 .title {
     text-align: center;
     color: #D4AF37;
 }
+
 .title:hover {
     transform: scale(1.03);
 }
+
+/* HERO SLIDER */
 .hero-slider {
     position: relative;
     width: 100%;
-    height: 720px;
+    height: 80vh;   /* responsive height */
     overflow: hidden;
 }
-.hero-slider:hover{
+
+.hero-slider:hover {
     transform: scale(1.03);
-    transition: transform 0.3s
+    transition: transform 0.3s;
 }
 
 .hero-slider img {
@@ -164,48 +156,11 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
-    color: #4a0037;
-    max-width: 450px;
-}
-.hero-content h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-.hero-content p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-.hero-content button {
-    padding: 15px 25px;
-    background: rgb(247, 37, 128);
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-left: 450px;
-    margin-top: 620px;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 15px;
-    white-space: nowrap;
-}
-.hero-content button:hover{
-    transform: scale(1.03);
-}
-.slide.active {
-    opacity: 1;
-}
+
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
 }
 .product-card {
     position: relative;

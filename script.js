@@ -16,47 +16,6 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 let current = 0;
 
-// Show slide
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if(i === index) slide.classList.add('active');
-    });
-}
-
-// Next slide
-function nextSlide() {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-}
-
-// Previous slide
-function prevSlide() {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-}
-
-// Auto slide every 5 seconds
-let slideInterval = setInterval(nextSlide, 5000);
-
-// Event listeners
-next.addEventListener('click', () => {
-    nextSlide();
-    resetInterval();
-});
-prev.addEventListener('click', () => {
-    prevSlide();
-    resetInterval();
-});
-
-// --- Slide after every 10 products ---
-const singleSlideTemplate = `
-  <div class="middle-slide">
-    <img src="images/slide1.png" 
-         alt="Slide Image" 
-         style="width:100%; display:block; margin:20px 0;">
-  </div>
-`;
 
 const productsContainers = document.querySelectorAll('.products');
 
@@ -71,11 +30,6 @@ productsContainers.forEach(container => {
     offset++;
   }
 });
-// Reset auto-slide interval after manual navigation
-function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 5000);
-}
 
 function checkStock() {
     alert("❌ This product is currently OUT OF STOCK");
@@ -101,18 +55,18 @@ function addToCart(name, price, image){
         existingItem.qty += 1;
     } else {
         cart.push({
-            name:name,
-            price:price,
-            image:image,
-            qty:1
+            name: name,
+            price: price,
+            image: image,
+            qty: 1
         });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert("Item added to cart!");
-}
-// AUTO FILL CHECKOUT DETAILS
+    // ❌ alert removed
+    
+}// AUTO FILL CHECKOUT DETAILS
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
 
@@ -209,24 +163,15 @@ function removeItem(id) {
     console.log("Item not found:", id);
   }
 }
-
-function handleKeyPress(event) {
-    if (event.key === "Enter") {
-        searchProducts();
-    }
-}
-
 function searchProducts() {
 
     const input = document.getElementById("searchInput").value.toLowerCase().trim();
     const suggestionBox = document.getElementById("suggestionBox");
-    const noResults = document.getElementById("noResults");
 
     suggestionBox.innerHTML = "";
-    noResults.style.display = "none";
+    suggestionBox.style.display = "none";
 
     if(input === ""){
-        suggestionBox.style.display = "none";
         return;
     }
 
@@ -240,12 +185,13 @@ function searchProducts() {
         item.name.toLowerCase().includes(input)
     );
 
+    // ✅ If nothing found → open new page
     if(filtered.length === 0){
-        suggestionBox.style.display = "none";
-        noResults.style.display = "block";
+        window.location.href = "no_results.html";
         return;
     }
 
+    // ✅ Show suggestions if found
     filtered.forEach(item => {
         const div = document.createElement("div");
         div.textContent = item.name;
@@ -259,6 +205,7 @@ function searchProducts() {
 
     suggestionBox.style.display = "block";
 }
+
 function goToCheckout(name, price, image) {
     window.location.href =
         "checkout.html?name=" + encodeURIComponent(name) +
