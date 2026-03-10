@@ -27,7 +27,8 @@ body {
 
 .search-box {
     position: relative;
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     height: 40px;
     border-radius: 2px;
     margin-right: 20px;
@@ -40,7 +41,7 @@ body {
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
-    margin-right: 300px;
+
 .search-box input:focus{
     border:2px solid gold;
 }
@@ -170,10 +171,9 @@ body {
     height: auto;
 }
 
-.hero-slider img {
-    width: 100%;
-    height: auto;
-    display: block;
+.hero-slider img{
+    width:100%;
+    height:auto;
 }
 /* PRODUCTS */
 .products {
@@ -371,4 +371,24 @@ body {
 
 .back-btn:hover{
     background:#ff4d94;
+}
+@media (max-width: 768px) {
+
+.header{
+    flex-wrap: wrap;
+}
+
+.search-box{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.nav-buttons{
+    margin-top: 10px;
+}
+
+.header-wishlist{
+    margin-left: 10px;
+}
+
 }
