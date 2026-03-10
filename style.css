@@ -7,12 +7,13 @@ body {
 
 .header {
     background: #fdfcfa;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:nowrap;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 6px;
 }
-
 /* ================= LOGO ================= */
 
 .logo{
@@ -30,7 +31,7 @@ body {
 .search-box {
     position: relative;
     width: 180px;
-    height: 40px;
+    height:41px;
     max-width: 180px;
     flex:1;
     margin-left: 5px;
@@ -81,7 +82,7 @@ body {
 
 .header-wishlist{
     font-size:22px;
-    margin-left:5px;
+    margin-left:80px;
     cursor:pointer;
 }
 /* ================= HEADER ICONS ================= */
@@ -89,7 +90,7 @@ body {
 .header-icons{
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:3px;
 }
 
 /* FIX BIG CART ICON SIZE */
@@ -113,7 +114,7 @@ body {
 }
 
 .nav-buttons button {
-    margin-right: 10px;
+    margin-right: 4px;
     background: #ff5c8a;
     border: none;
     padding: 6px 14px;
@@ -175,8 +176,8 @@ body {
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
     padding: 10px;
 }
 .product-card {
@@ -372,16 +373,20 @@ body {
 @media (max-width:768px){
 
 .header{
-    flex-wrap:nowrap;
+flex-wrap:wrap;
 }
 
 .search-box{
-    width:100%;
+width:100%;
+margin-top:10px;
 }
 
 .header-wishlist{
-    position:relative;
-    z-index:10;
+margin-left:10px;
+}
+
+.nav-buttons{
+margin-top:10px;
 }
 
 }
