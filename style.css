@@ -6,11 +6,15 @@ body {
 /* HEADER */
 
 .header {
-    background: #fdfcfa;
-    padding: 8px 15px;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 /* ================= LOGO ================= */
 
 .logo{
@@ -387,4 +391,11 @@ body {
     .products {
         grid-template-columns: repeat(5, 1fr); /* 5 products per row on tablet */
     }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 }
