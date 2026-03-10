@@ -126,12 +126,17 @@ generateCaptcha();
 return;
 }
 
-// Save logged user
-localStorage.setItem("loggedUser", mobile);
+let users = JSON.parse(localStorage.getItem("herstyleUsers")) || [];
 
+let validUser = users.find(user => user.mobile === mobile && user.password === password);
+
+if(validUser){
 alert("Login Successful 🎉");
 window.location.href="index.html";
-
+}
+else{
+alert("Invalid mobile number or password");
+}
 }
 </script>
 

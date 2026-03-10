@@ -6,11 +6,10 @@ body {
 /* HEADER */
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap; /* prevents buttons from moving down */
+    background: #fdfcfa;
     padding: 8px 15px;
+    display: flex;
+    align-items: center;
 }
 /* ================= LOGO ================= */
 
@@ -28,23 +27,24 @@ body {
 
 .search-box {
     position: relative;
-    width: 180px;
-    height:41px;
-    max-width: 180px;
-    flex:1;
+    width: 100%;
+    max-width: 270px;
+    height: 40px;
+    border-radius: 2px;
+    margin-right: 20px;
     margin-left: 5px;
-
 }
+
 .search-box input {
     width: 100%;
     padding: 8px 40px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
-}
+    
 .search-box input:focus{
     border:2px solid gold;
-
+}
 }
 .search-box i{
     position: absolute;
@@ -79,16 +79,22 @@ body {
 /* ================= WISHLIST ================= */
 
 .header-wishlist{
-    font-size:22px;
-    margin-left:80px;
-    cursor:pointer;
+    font-size: 26px;
+    cursor: pointer;
+    margin-left: 70px;
+    display: flex;
+    align-items: center;   /* vertical center */
 }
+
 /* ================= HEADER ICONS ================= */
 
-.header .icons {
+.header-icons {
     display: flex;
-    gap: 10px; /* spacing between cart, wishlist etc. */
+    align-items: center;
+    margin-right: 10px;
+    gap: 5px;   /* ADD THIS */
 }
+
 /* FIX BIG CART ICON SIZE */
 .header-icons img {
     width: 23px;
@@ -110,7 +116,7 @@ body {
 }
 
 .nav-buttons button {
-    margin-right: 4px;
+    margin-right: 10px;
     background: #ff5c8a;
     border: none;
     padding: 6px 14px;
@@ -165,14 +171,15 @@ body {
     height: auto;
 }
 
-.hero-slider img{
-    width:100%;
-    height:auto;
+.hero-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* mobile: 2 products per row */
+    grid-template-columns: repeat(4, 1fr); /* default: mobile 4 columns */
     gap: 10px;
     padding: 10px;
 }
@@ -367,36 +374,37 @@ body {
 .back-btn:hover{
     background:#ff4d94;
 }
-@media (max-width:768px){
-
-.header{
-flex-wrap:wrap;
-}
-
-.search-box{
-width:100%;
-margin-top:10px;
-}
-
-.header-wishlist{
-margin-left:10px;
-}
-
-.nav-buttons{
-margin-top:10px;
-}
-
-}
-
-@media (min-width: 768px) {
-    .products {
-        grid-template-columns: repeat(4, 1fr); /* tablet: 4 products per row */
-    }
-}
 
 /* Laptop / Desktop */
 @media (min-width: 1200px) {
     .products {
-        grid-template-columns: repeat(5, 1fr); /* desktop: 5 products per row */
+        grid-template-columns: repeat(6, 1fr); /* 6 products per row on big screens */
     }
+}
+
+/* Tablet (optional) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .products {
+        grid-template-columns: repeat(5, 1fr); /* 5 products per row on tablet */
+    }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .search-box {
+    width: 90%;              /* make search box smaller than full width */
+    margin: 10px auto;
+  }
+  .header .icons {
+    margin-left: 10px;        /* add left margin to icon group */
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .header-wishlist {
+    margin-left: 15px;        /* give wishlist extra left space */
+  }
 }
