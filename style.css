@@ -10,6 +10,8 @@ body {
     padding: 8px 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 /* ================= LOGO ================= */
 
@@ -41,10 +43,10 @@ body {
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
-
+}
 .search-box input:focus{
     border:2px solid gold;
-}
+
 }
 .search-box i{
     position: absolute;
@@ -81,11 +83,10 @@ body {
 .header-wishlist{
     font-size: 26px;
     cursor: pointer;
-    margin-left: 70px;
+    margin-left: 10px;
     display: flex;
-    align-items: center;   /* vertical center */
+    align-items: center;
 }
-
 /* ================= HEADER ICONS ================= */
 
 .header-icons {
@@ -372,23 +373,25 @@ body {
 .back-btn:hover{
     background:#ff4d94;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-.header{
-    flex-wrap: wrap;
+.logo{
+    width:100%;
 }
 
 .search-box{
-    width: 100%;
-    margin-top: 10px;
+    width:100%;
+    margin-top:8px;
+}
+
+.header-icons{
+    margin-top:8px;
 }
 
 .nav-buttons{
-    margin-top: 10px;
-}
-
-.header-wishlist{
-    margin-left: 10px;
+    width:100%;
+    justify-content:center;
+    margin-top:10px;
 }
 
 }
