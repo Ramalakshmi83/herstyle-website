@@ -7,11 +7,12 @@ body {
 
 .header {
     background: #fdfcfa;
-    padding: 8px 15px;
+    padding: 8px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;   /* prevents items going down */
+    gap: 6px;
 }
 /* ================= LOGO ================= */
 
@@ -29,14 +30,11 @@ body {
 
 .search-box {
     position: relative;
-    width: 100%;
-    max-width: 270px;
-    height: 40px;
-    border-radius: 2px;
-    margin-right: 20px;
-    margin-left: 5px;
-}
+    width: 180px;
+    max-width: 180px;
+  margin-left: 5px;
 
+}
 .search-box input {
     width: 100%;
     padding: 8px 40px;
@@ -375,43 +373,19 @@ body {
 }
 @media (max-width:768px){
 
-.header{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:space-between;
-}
-
-/* Logo */
-.logo{
-display:flex;
-align-items:center;
-}
-
-/* Search bar full width */
 .search-box{
-width:100%;
-order:2;
-margin-top:5px;
+width:140px;
+max-width:140px;
 }
 
-/* Icons row */
-.header-icons{
-display:flex;
-align-items:center;
-gap:10px;
-order:1;
+.logo img{
+width:32px;
+height:32px;
 }
 
-/* Navigation buttons */
-.nav-buttons{
-width:100%;
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:8px;
-margin-top:8px;
-order:3;
+.header-icons img{
+width:20px;
+height:20px;
 }
 
 }

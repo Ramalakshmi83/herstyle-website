@@ -106,37 +106,33 @@ generateCaptcha();
 /* LOGIN FUNCTION */
 function loginUser(){
 
-    let mobile = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let captcha = document.getElementById("captchaInput").value.trim();
+let mobile = document.getElementById("username").value.trim();
+let password = document.getElementById("password").value.trim();
+let captcha = document.getElementById("captchaInput").value.trim();
 
-    // Demo stored login credentials
-    const savedMobile = "9876543210";
-    const savedPassword = "12345";
-
-    if(mobile === "" || password === "" || captcha === ""){
-        alert("Enter full details");
-        return;
-    }
-
-    if(mobile.length !== 10 || isNaN(mobile)){
-        alert("Enter valid 10-digit mobile number");
-        return;
-    }
-
-    if(captcha !== captchaValue){
-        alert("Invalid Captcha");
-        generateCaptcha();
-        return;
-    }
-
-    if(mobile === savedMobile && password === savedPassword){
-        alert("Login Successful 🎉");
-    }else{
-        alert("Enter valid username or password");
-    }
+if(mobile === "" || password === "" || captcha === ""){
+alert("Enter full details");
+return;
 }
 
+if(mobile.length !== 10 || isNaN(mobile)){
+alert("Enter valid 10-digit mobile number");
+return;
+}
+
+if(captcha !== captchaValue){
+alert("Invalid Captcha");
+generateCaptcha();
+return;
+}
+
+// Save logged user
+localStorage.setItem("loggedUser", mobile);
+
+alert("Login Successful 🎉");
+window.location.href="index.html";
+
+}
 </script>
 
 </body>
