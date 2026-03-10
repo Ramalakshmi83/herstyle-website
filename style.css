@@ -7,13 +7,12 @@ body {
 
 .header {
     background: #fdfcfa;
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;   /* prevents items going down */
-    gap: 6px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:nowrap;
 }
+
 /* ================= LOGO ================= */
 
 .logo{
@@ -31,8 +30,10 @@ body {
 .search-box {
     position: relative;
     width: 180px;
+    height: 40px;
     max-width: 180px;
-  margin-left: 5px;
+    flex:1;
+    margin-left: 5px;
 
 }
 .search-box input {
@@ -79,19 +80,16 @@ body {
 /* ================= WISHLIST ================= */
 
 .header-wishlist{
-    font-size: 26px;
-    cursor: pointer;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
+    font-size:22px;
+    margin-left:5px;
+    cursor:pointer;
 }
 /* ================= HEADER ICONS ================= */
 
-.header-icons {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    gap: 5px;   /* ADD THIS */
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:5px;
 }
 
 /* FIX BIG CART ICON SIZE */
@@ -373,19 +371,17 @@ body {
 }
 @media (max-width:768px){
 
+.header{
+    flex-wrap:nowrap;
+}
+
 .search-box{
-width:140px;
-max-width:140px;
+    width:100%;
 }
 
-.logo img{
-width:32px;
-height:32px;
-}
-
-.header-icons img{
-width:20px;
-height:20px;
+.header-wishlist{
+    position:relative;
+    z-index:10;
 }
 
 }
