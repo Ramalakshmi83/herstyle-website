@@ -13,10 +13,11 @@ body {
 }
 /* ================= LOGO ================= */
 
-.logo {
-    margin-right: 20px;
+.logo{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
-
 .logo img {
     width: 40px;
     height: 40px;
@@ -86,13 +87,13 @@ body {
     display: flex;
     align-items: center;
     margin-right: 10px;
-    gap: 10px;   /* ADD THIS */
+    gap: 5px;   /* ADD THIS */
 }
 
 /* FIX BIG CART ICON SIZE */
 .header-icons img {
-    width: 28px;
-    height: 28px;
+    width: 23px;
+    height: 23px;
     object-fit: contain;
 }
 
@@ -116,7 +117,7 @@ body {
     padding: 6px 14px;
     border-radius: 20px;
     color: white;
-    font-size: 13px;
+    font-size: 10px;
     cursor: pointer;
 }
 
