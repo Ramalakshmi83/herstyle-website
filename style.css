@@ -390,21 +390,50 @@ body {
 }
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 5px 10px;
   }
   .search-box {
-    width: 90%;              /* make search box smaller than full width */
-    margin: 10px auto;
+    max-width: 150px;
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
-  .header .icons {
-    margin-left: 10px;        /* add left margin to icon group */
-    margin-top: 10px;
+  .search-box input {
+    padding: 6px 30px;
+    font-size: 12px;
+  }
+  .header-icons {
     display: flex;
-    justify-content: center;
+    gap: 8px;
+    align-items: center;
   }
-  .header-wishlist {
-    margin-left: 15px;        /* give wishlist extra left space */
+  .header-icons img {
+    width: 20px;
+    height: 20px;
+  }
+  .nav-buttons {
+    display: flex;
+    gap: 5px;
+  }
+  .nav-buttons button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .hero-slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .hero-slider {
+    margin-top: 5px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    padding: 5px;
   }
 }
