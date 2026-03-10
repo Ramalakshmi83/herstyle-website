@@ -6,13 +6,11 @@ body {
 /* HEADER */
 
 .header {
-    background: #fdfcfa;
-    padding: 8px 10px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 6px;
+    flex-wrap: nowrap; /* prevents buttons from moving down */
+    padding: 8px 15px;
 }
 /* ================= LOGO ================= */
 
@@ -87,12 +85,10 @@ body {
 }
 /* ================= HEADER ICONS ================= */
 
-.header-icons{
-    display:flex;
-    align-items:center;
-    gap:3px;
+.header .icons {
+    display: flex;
+    gap: 10px; /* spacing between cart, wishlist etc. */
 }
-
 /* FIX BIG CART ICON SIZE */
 .header-icons img {
     width: 23px;
@@ -176,10 +172,11 @@ body {
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* default: mobile 4 columns */
+    grid-template-columns: repeat(2, 1fr); /* mobile: 2 products per row */
     gap: 10px;
     padding: 10px;
 }
+
 .product-card {
     position: relative;
 }
@@ -391,16 +388,15 @@ margin-top:10px;
 
 }
 
-/* Laptop / Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
     .products {
-        grid-template-columns: repeat(6, 1fr); /* 6 products per row on big screens */
+        grid-template-columns: repeat(4, 1fr); /* tablet: 4 products per row */
     }
 }
 
-/* Tablet (optional) */
-@media (min-width: 768px) and (max-width: 1199px) {
+/* Laptop / Desktop */
+@media (min-width: 1200px) {
     .products {
-        grid-template-columns: repeat(5, 1fr); /* 5 products per row on tablet */
+        grid-template-columns: repeat(5, 1fr); /* desktop: 5 products per row */
     }
 }
