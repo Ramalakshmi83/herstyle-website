@@ -176,7 +176,7 @@ body {
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* default: mobile 4 columns */
     gap: 10px;
     padding: 10px;
 }
@@ -389,4 +389,18 @@ margin-left:10px;
 margin-top:10px;
 }
 
+}
+
+/* Laptop / Desktop */
+@media (min-width: 1200px) {
+    .products {
+        grid-template-columns: repeat(6, 1fr); /* 6 products per row on big screens */
+    }
+}
+
+/* Tablet (optional) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .products {
+        grid-template-columns: repeat(5, 1fr); /* 5 products per row on tablet */
+    }
 }
