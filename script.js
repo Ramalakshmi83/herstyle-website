@@ -11,25 +11,6 @@ function filterCategory(category) {
                 : "none";
     });
 }
-const slides = document.querySelectorAll('.slide');
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-let current = 0;
-
-
-const productsContainers = document.querySelectorAll('.products');
-
-productsContainers.forEach(container => {
-  let productCards = Array.from(container.children);
-  let offset = 0;
-
-  for (let i = 10; i < productCards.length; i += 10) {
-    const slideDiv = document.createElement('div');
-    slideDiv.innerHTML = singleSlideTemplate;
-    container.insertBefore(slideDiv, productCards[i + offset]);
-    offset++;
-  }
-});
 
 function checkStock() {
     alert("❌ This product is currently OUT OF STOCK");
@@ -45,28 +26,39 @@ function closePopup() {
     document.getElementById("orderPopup").style.display = "none";
 }
 
-function addToCart(name, price, image){
+function addToCart(name, price, image, button){
+
+    const qtySpan = button.parentElement.querySelector('.qty-number');
+    const qty = parseInt(qtySpan.innerText);
+
+    if(qty <= 0){
+        alert("Please select quantity");
+        return;
+    }
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     let existingItem = cart.find(item => item.name === name);
 
     if(existingItem){
-        existingItem.qty += 1;
+        existingItem.qty += qty;
     } else {
         cart.push({
             name: name,
             price: price,
             image: image,
-            qty: 1
+            qty: qty
         });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // ❌ alert removed
-    
-}// AUTO FILL CHECKOUT DETAILS
+    // reset quantity
+    qtySpan.innerText = "0";
+
+}
+
+// AUTO FILL CHECKOUT DETAILS
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
 
@@ -163,7 +155,14 @@ function removeItem(id) {
     console.log("Item not found:", id);
   }
 }
-function searchProducts() {
+
+const categories = [
+    {name: "Bangles", link: "bangles.html"},
+    {name: "Dresses", link: "dresses.html"},
+    {name: "Accessories", link: "accessories.html"}
+];
+
+function showSuggestions() {
 
     const input = document.getElementById("searchInput").value.toLowerCase().trim();
     const suggestionBox = document.getElementById("suggestionBox");
@@ -175,24 +174,12 @@ function searchProducts() {
         return;
     }
 
-    const categories = [
-        {name: "Bangles", link: "bangles.html"},
-        {name: "Dresses", link: "dresses.html"},
-        {name: "Accessories", link: "accessories.html"}
-    ];
-
     const filtered = categories.filter(item =>
         item.name.toLowerCase().includes(input)
     );
 
-    // ✅ If nothing found → open new page
-    if(filtered.length === 0){
-        window.location.href = "no_results.html";
-        return;
-    }
-
-    // ✅ Show suggestions if found
     filtered.forEach(item => {
+
         const div = document.createElement("div");
         div.textContent = item.name;
 
@@ -201,10 +188,34 @@ function searchProducts() {
         };
 
         suggestionBox.appendChild(div);
+
     });
 
-    suggestionBox.style.display = "block";
+    if(filtered.length > 0){
+        suggestionBox.style.display = "block";
+    }
 }
+
+function searchProducts(){
+
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+
+    const filtered = categories.filter(item =>
+        item.name.toLowerCase().includes(input)
+    );
+
+    if(filtered.length === 0){
+        window.location.href = "no_results.html";
+    }else{
+        window.location.href = filtered[0].link;
+    }
+}
+
+document.getElementById("searchInput").addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        searchProducts();
+    }
+});
 
 function goToCheckout(name, price, image) {
     window.location.href =
@@ -213,8 +224,17 @@ function goToCheckout(name, price, image) {
         "&image=" + encodeURIComponent(image);
 }
 
+function changeQty(element, change) {
+    const qtySpan = element.parentElement.querySelector('.qty-number');
+    let currentQty = parseInt(qtySpan.innerText);
+    currentQty += change;
+    if (currentQty < 0) currentQty = 0;
+    qtySpan.innerText = currentQty;
+}
 
-
+function goBack(){
+    window.history.back();
+}
 
 
 

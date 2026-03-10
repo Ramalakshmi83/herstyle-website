@@ -10,16 +10,11 @@ body {
     padding: 8px 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: nowrap;   /* IMPORTANT */
-    overflow-x: auto;    /* prevents cutting */
 }
 /* ================= LOGO ================= */
 
 .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    margin-right: 20px;
 }
 
 .logo img {
@@ -30,46 +25,80 @@ body {
 /* ================= SEARCH BOX ================= */
 
 .search-box {
-    width: 300px;
-    flex-shrink: 0;
-}
-.search-box input {
-    width: 100%;
+    position: relative;
+    width: 270px;
     height: 40px;
-    padding: 0 40px 0 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;   /* better for mobile */
-    outline: none;
-    box-sizing: border-box;
+    border-radius: 2px;
+    margin-right: 20px;
 }
 
-.search-box i {
+.search-box input {
+    width: 100%;
+    padding: 8px 40px;  /* space for icon */
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    margin-right:300px ;
+}
+.search-box i{
     position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+    left: 0px;
+    top: 0;
+    bottom: 7px;        /* makes it stretch from top to bottom */
+    width: 34px;
+    font-size: 20px;
+    color: gray;
+    background-color: rgb(229, 179, 13);
+
+    display: flex;
+    align-items: center;     /* center icon vertically */
+    justify-content: center; /* center icon horizontally */
+}
+.search-box i:hover{
+    background-color: rgb(230, 203, 53);
+    color: black;
+}
+
+/* Click effect */
+.search-box i:active{
+    transform: scale(0.9);
+}
+.search-box:hover{
+    color: black; 
+}
+.search-box:active{
+        transform: scale(0.9);
+
 }
 /* ================= WISHLIST ================= */
 
-.header-wishlist {
-    font-size: 24px;
+.header-wishlist{
+    font-size: 26px;
     cursor: pointer;
-    margin-left: 10px;   /* only 10px gap */
+    margin-left: 70px;
     display: flex;
-    align-items: center;
+    align-items: center;   /* vertical center */
 }
+
 /* ================= HEADER ICONS ================= */
 
 .header-icons {
     display: flex;
     align-items: center;
-    gap: 10px;
+    margin-right: 10px;
+    gap: 10px;   /* ADD THIS */
+}
+
+/* FIX BIG CART ICON SIZE */
+.header-icons img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
 .header-icons .icon {
-    width: 30px;
-    height: 30px;
+   margin-right: 10px;
+    font-size: 20px;
     cursor: pointer;
 }
 
@@ -78,14 +107,10 @@ body {
 .nav-buttons {
     display: flex;
     align-items: center;
-    gap: 10px;     /* 10px gap */
-}
-
-.nav-buttons a {
-    text-decoration: none;
 }
 
 .nav-buttons button {
+    margin-right: 10px;
     background: #ff5c8a;
     border: none;
     padding: 6px 14px;
@@ -94,6 +119,11 @@ body {
     font-size: 13px;
     cursor: pointer;
 }
+
+.nav-buttons a {
+    text-decoration: none;
+}
+
 
 .nav-buttons button:hover {
     background: #e14a74;
@@ -212,25 +242,47 @@ body {
     padding: 8px;
 }
 .add-cart-btn {
+    position: relative;
+    padding: 10px 40px 10px 20px; /* extra space on right for qty box */
     background-color:rgb(247, 37, 128);
     color: white;
-    font-size: 13px;          /* BIG TEXT */
-    padding: 8px 15px;       /* BIG SIZE */
     border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    height: 45px;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start; /* text left */
+    align-items: center;
 }
 
-.add-cart-btn:hover {
-    transform: scale(1.03);
-    background-color: #333;
+.qty-controls {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 15px; /* adjust width as needed */
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 0 5px 5px 0; /* round only right side */
+    font-size:15px;
+    user-select: none;
 }
 
-.add-cart-btn:active {
-    transform: scale(0.95);
+.qty-number {
+    min-width: 18px;
+    text-align: center;
+    margin: 2px 0;
 }
+
+.increase, .decrease {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 1px 0;
+}
+
 .login-popup {
     display: none; /* Hidden by default */
     position: fixed;
@@ -270,4 +322,46 @@ body {
     cursor: pointer;
 }
 
+.qty-box {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* space between buttons */
+    justify-content: center;
+    margin-top: 10px;
+}
 
+.qty-btn {
+    width: 25px;
+    height: 25px;
+    background-color: #edb808; /* button color */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: #d19e06; /* hover effect */
+}
+
+.qty {
+    min-width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+.back-btn{
+    background:#333;
+    color:white;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:20px;
+}
+
+.back-btn:hover{
+    background:#ff4d94;
+}

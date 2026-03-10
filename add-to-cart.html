@@ -90,14 +90,22 @@ function addMore(name){
 
 function removeItem(name){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart = cart.filter(item => item.name !== name);
+    let itemIndex = cart.findIndex(p => p.name === name);
+
+    if(itemIndex !== -1){
+        // Decrease quantity by 1
+        cart[itemIndex].qty -= 1;
+
+        // Remove completely if quantity reaches 0
+        if(cart[itemIndex].qty <= 0){
+            cart.splice(itemIndex, 1); // remove item from array
+        }
+    }
 
     localStorage.setItem("cart", JSON.stringify(cart));
     displayCart();
 }
-
-document.addEventListener("DOMContentLoaded", displayCart);
-
+displayCart();
 </script>
 
 </body>

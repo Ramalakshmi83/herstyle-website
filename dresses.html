@@ -1,7 +1,106 @@
 <html>
 <head>
     <title>Accessories Collection</title>
-    <link rel="stylesheet" href="dresses.css">
+    <link rel="stylesheet" href="style.css">
+    <button onclick="goBack()" class="back-btn">⬅ Go Back</button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Container for all products */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: rgb(243, 238, 222); /* light background similar to wishlist */
+}
+
+/* Each product card */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Product image */
+.product-card img {
+    width: 50%;           /* adjust size as per design */
+    height: 200px;        /* fixed height */
+    object-fit: cover;    /* maintain aspect ratio, no stretch */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Product title */
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+/* Product price */
+.product-card p {
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.card {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.image-box {
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+.wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    color: rgb(247, 37, 128);
+    cursor: pointer;
+    width: 50px;
+}
+
+.wishlist-icon.active {
+    color: rgb(247, 37, 128);
+}
+.cart-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+    </style>
 
 </head>
 <body>
@@ -11,256 +110,407 @@
 
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-1.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,223, 'Party Dress', 650, 'Dress-1.webp')"></i>
+            <img src="images/Dress-1.webp"
+             onclick="goToCheckout('Party Dress', 650, 'Dress-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,229, 'Party Dress', 650, 'Dress-1.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1800</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1800, 'Dress-1.webp')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Party Dress', 1800, 'Dress-1.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
       <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-2.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,224, 'Party Dress', 1700, 'Dress-2.jpg')"></i>
+            <img src="images/Dress-2.jpg"
+            onclick="goToCheckout('Party Dress', 1700, 'Dress-2.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,230, 'Party Dress', 1700, 'Dress-2.jpg')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1700</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1700, 'Dress-2.jpg')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1700, 'Dress-2.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-3.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,225, 'Party Dress', 1900, 'Dress-3.webp')"></i>
+            <img src="images/Dress-3.webp"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-3.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,231, 'Party Dress', 1900, 'Dress-3.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1900</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1900, 'Dress-3.webp')">
-ADD TO CART
+       <button class="add-cart-btn" onclick="addToCart('Party Dress', 1900, 'Dress-3.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-4.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,226, 'Party Dress', 1200, 'Dress-4.webp')"></i>
+            <img src="images/Dress-4.webp"
+            onclick="goToCheckout('Party Dress', 1200, 'Dress-4.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,232, 'Party Dress', 1200, 'Dress-4.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1200</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1200, 'Dress-4.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1200, 'Dress-4.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-5.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,227,'Party Dress', 1400, 'Dress-5.webp')"></i>
+            <img src="images/Dress-5.webp"
+            onclick="goToCheckout('Party Dress', 1400, 'Dress-5.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,233,'Party Dress', 1400, 'Dress-5.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1400</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1400, 'Dress-5.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1400, 'Dress-5.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-6.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,228, 'Party Dress', 1600, 'Dress-6.webp')"></i>
+            <img src="images/Dress-6.webp"
+            onclick="goToCheckout('Party Dress', 1600, 'Dress-6.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,234, 'Party Dress', 1600, 'Dress-6.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1600</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1600, 'Dress-6.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1600, 'Dress-6.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
      <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-8.jpeg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,229, 'Party Dress', 1900, 'Dress-8.jpeg')"></i>
+            <img src="images/Dress-8.jpeg"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-8.jpeg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,235, 'Party Dress', 1900, 'Dress-8.jpeg')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1900</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1900, 'Dress-8.jpeg')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1900, 'Dress-8.jpeg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
    <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-9.jpeg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,230, 'Party Dress', 2400, 'Dress-9.jpeg')"></i>
+            <img src="images/Dress-9.jpeg"
+            onclick="goToCheckout('Party Dress', 2400, 'Dress-9.jpeg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,236, 'Party Dress', 2400, 'Dress-9.jpeg')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹2,400</p>
-       <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 2400, 'Dress-9.jpeg')">
-ADD TO CART
+       <button class="add-cart-btn" onclick="addToCart('Party Dress', 2400, 'Dress-9.jpeg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-10.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,231, 'Beautiful', 2500, 'Dress-10.jpg')"></i>
+            <img src="images/Dress-10.jpg"
+            onclick="goToCheckout('Beautiful', 2500, 'Dress-10.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,237, 'Beautiful', 2500, 'Dress-10.jpg')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹2,500</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 2500, 'Dress-10.jpg')">
-ADD TO CART
+       <button class="add-cart-btn" onclick="addToCart('Beautiful', 2500, 'Dress-10.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
       <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-11.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,232, 'Party Dress', 1900, 'Dress-11.jpg')"></i>
+            <img src="images/Dress-11.jpg"
+            onclick="goToCheckout('Party Dress', 1900, 'Dress-11.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,238, 'Party Dress', 1900, 'Dress-11.jpg')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1900</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1900, 'Dress-11.jpg')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1900, 'Dress-11.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
+    <a href="out-of-stock-dresses.html" style="text-decoration:none; color:inherit;">
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-12.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 233,'Party Dress', 1800, 'Dress-12.webp')"></i>
+            <img src="images/Dress-12.webp"
+            onclick="goToCheckout('Party Dress', 1800, 'Dress-12.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,239,'Party Dress', 1800, 'Dress-12.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1800</p>
-       <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1800, 'Dress-12.webp')">
-ADD TO CART
+       <button class="add-cart-btn" onclick="addToCart('Party Dress', 1800, 'Dress-12.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
+    </a>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-13.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,234, 'Party Dress', 1600, 'Dress-13.webp')"></i>
+            <img src="images/Dress-13.webp"
+            onclick="goToCheckout('Party Dress', 1600, 'Dress-13.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,240, 'Party Dress', 1600, 'Dress-13.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1600</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1600, 'Dress-13.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1600, 'Dress-13.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-14.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,235, 'Beautiful', 2100, 'Dress-14.jpg')"></i>
+            <img src="images/Dress-14.jpg"
+            onclick="goToCheckout('Party Dress', 2100, 'Dress-14.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,241, 'Beautiful', 2100, 'Dress-14.jpg')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹2,100</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 2100, 'Dress-14.jpg')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Beautiful', 2100, 'Dress-14.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-15.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 236, 'Beautiful', 1500, 'Dress-15.webp')"></i>
+            <img src="images/Dress-15.webp"
+            onclick="goToCheckout('Party Dress', 1500, 'Dress-15.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,242, 'Beautiful', 1500, 'Dress-15.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1500</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1500, 'Dress-15.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Beautiful', 1500, 'Dress-15.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-1.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 237, 'Beautiful', 2200, 'Saree-1.webp')"></i>
+            <img src="images/Saree-1.webp"
+            onclick="goToCheckout('Beautiful', 2200, 'Saree-1.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick=" event.stopPropagation(); toggleWishlist(this,243, 'Beautiful', 2200, 'Saree-1.webp')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹2,200</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 2200, 'Saree-1.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Beautiful', 2200, 'Saree-1.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button> 
 </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-2.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,238, 'Beautiful', 2000, 'Saree-2.webp')"></i>
+            <img src="images/Saree-2.webp"
+            onclick="goToCheckout('Beautiful', 2000, 'Saree-2.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,244, 'Beautiful', 2000, 'Saree-2.webp')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹2000</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 2000, 'Saree-2.webp')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Beautiful', 2000, 'Saree-2.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-3.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 239,'Beautiful', 1900, 'Saree-3.webp')"></i>
+            <img src="images/Saree-3.webp"
+            onclick="goToCheckout('Beautiful', 1900, 'Saree-3.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,245,'Beautiful', 1900, 'Saree-3.webp')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹1900</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 1900, 'Saree-3.webp')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Beautiful', 1900, 'Saree-3.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-4.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 240,'Beautiful', 1500, 'Saree-4.webp')"></i>
+            <img src="images/Saree-4.webp"
+            onclick="goToCheckout('Beautiful', 1500, 'Saree-4.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,246,'Beautiful', 1500, 'Saree-4.webp')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹1500</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 1500, 'Saree-4.webp')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Beautiful', 1500, 'Saree-4.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>    
 </div>
+<a href="out-of-stock-dresses.html" style="text-decoration:none; color:inherit;">
 <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-5.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this, 241, 'Beautiful', 1800, 'Saree-5.jpg')"></i>
+            <img src="images/Saree-5.jpg"
+            onclick="goToCheckout('Beautiful', 1800, 'Saree-5.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,247, 'Beautiful', 1800, 'Saree-5.jpg')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹1800</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 1800, 'Saree-5.jpg')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Beautiful', 1800, 'Saree-5.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
+</a>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Saree-6.jpg">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,242, 'Beautiful', 1900, 'Saree-6.jpg')"></i>
+            <img src="images/Saree-6.jpg"
+            onclick="goToCheckout('Beautiful', 1900, 'Saree-6.jpg')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,248, 'Beautiful', 1900, 'Saree-6.jpg')"></i>
         </div>
         <h3>Beautiful</h3>
         <p>₹1900</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Beautiful', 1900, 'Saree-6.jpg')">
-ADD TO CART
+         <button class="add-cart-btn" onclick="addToCart('Beautiful', 1900, 'Saree-6.jpg', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
     </div>
     <div class="product-card" data-category="Dresses">
         <div class="image-box">
-            <img src="images/Dress-7.webp">
-            <i class="fa-regular fa-heart wishlist-icon"onclick="toggleWishlist(this,243, 'Party Dress', 1800, 'Dress-7.webp')"></i>
+            <img src="images/Dress-7.webp"
+            onclick="goToCheckout('Party Dress', 1800, 'Dress-7.webp')"
+     style="cursor:pointer;">
+            <i class="fa-regular fa-heart wishlist-icon"
+            onclick="event.stopPropagation(); toggleWishlist(this,249, 'Party Dress', 1800, 'Dress-7.webp')"></i>
         </div>
         <h3>Party Dress</h3>
         <p>₹1800</p>
-        <button class="add-cart-btn"
-onclick="addToCart('Party Dress', 1800, 'Dress-7.webp')">
-ADD TO CART
+        <button class="add-cart-btn" onclick="addToCart('Party Dress', 1800, 'Dress-7.webp', this)">
+    ADD TO CART
+    <span class="qty-controls">
+        <span class="increase" onclick="event.stopPropagation(); changeQty(this, 1)">&#9650;</span>
+        <span class="qty-number">0</span>
+        <span class="decrease" onclick="event.stopPropagation(); changeQty(this, -1)">&#9660;</span>
+    </span>
 </button>
-</div>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
