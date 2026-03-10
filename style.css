@@ -31,15 +31,19 @@ body {
     height: 40px;
     border-radius: 2px;
     margin-right: 20px;
+    margin-left: 5px;
 }
 
 .search-box input {
     width: 100%;
-    padding: 8px 40px;  /* space for icon */
+    padding: 8px 40px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 14px;
-    margin-right:300px ;
+    margin-right: 300px;
+.search-box input:focus{
+    border:2px solid gold;
+}
 }
 .search-box i{
     position: absolute;
@@ -174,7 +178,9 @@ body {
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 15px;
+    padding: 10px;
 }
 .product-card {
     position: relative;
