@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background: #fdf5db;
 }
@@ -8,11 +9,11 @@ body {
 .header {
   width: 100%;
   background-color: #ffffff;
-  padding: 3px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;   /* IMPORTANT */
-  gap: 8px;                      /* small space between items */
+  gap: 0;                      /* small space between items */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -36,6 +37,7 @@ body {
     max-width: 270px;
     height: 40px;
     border-radius: 2px;
+    margin: 0 10px;
 }
 
 .search-box input {
@@ -85,7 +87,7 @@ body {
     font-size: 26px;
     display: flex;
     align-items: center;   /* vertical center */
-    margin-left: 80px;
+    margin-left: 0px;
 }
 
 /* ================= HEADER ICONS ================= */
@@ -398,4 +400,28 @@ body {
     align-items: center;
     padding: 10px;
   }
+}
+/* Fix mobile view spacing */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row; /* keep items in row */
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .header__icons {
+    margin-right: 0;
+  }
+  
+  /* remove extra empty space */
+  .products {
+    padding: 0 10px;
+  }
+}
+
+/* Remove unwanted margins */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
