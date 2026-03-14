@@ -8,10 +8,11 @@ body {
 .header {
   width: 100%;
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 3px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;   /* IMPORTANT */
+  gap: 8px;                      /* small space between items */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -35,8 +36,6 @@ body {
     max-width: 270px;
     height: 40px;
     border-radius: 2px;
-    margin-right: 20px;
-    margin-left: 5px;
 }
 
 .search-box input {
@@ -84,10 +83,9 @@ body {
 
 .header-wishlist{
     font-size: 26px;
-    cursor: pointer;
-    margin-left: 70px;
     display: flex;
     align-items: center;   /* vertical center */
+    margin-left: 80px;
 }
 
 /* ================= HEADER ICONS ================= */
@@ -95,8 +93,8 @@ body {
 .header-icons {
     display: flex;
     align-items: center;
-    margin-right: 10px;
-    gap: 5px;   /* ADD THIS */
+    justify-content: center;
+    gap: 10px;   /* ADD THIS */
 }
 
 /* FIX BIG CART ICON SIZE */
@@ -107,9 +105,11 @@ body {
 }
 
 .header-icons .icon {
-   margin-right: 10px;
-    font-size: 20px;
-    cursor: pointer;
+     margin: 0; /* remove extra margin */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
 }
 
 /* ================= NAV BUTTONS ================= */
