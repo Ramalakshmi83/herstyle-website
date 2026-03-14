@@ -12,12 +12,13 @@ body {
 .header {
   width: 100%;
   background-color: #ffffff;
-  padding: 0;
+  padding:10px  0;
   display: flex;
   align-items: center;
   justify-content: flex-start;   /* IMPORTANT */
   gap: 0;                      /* small space between items */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
 }
 
 /* ================= LOGO ================= */
@@ -122,16 +123,19 @@ body {
 .nav-buttons {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
 }
 
 .nav-buttons button {
-    margin-right: 10px;
+    margin-right: 35px;
+    padding: 10px 20px;
     background: #ff5c8a;
     border: none;
-    padding: 6px 14px;
     border-radius: 20px;
     color: white;
-    font-size: 10px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -192,6 +196,7 @@ body {
     gap: 10px;
     padding: 0 10px;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .product-card {
@@ -410,7 +415,7 @@ body {
   .header {
     flex-direction: row; /* keep items in row */
     justify-content: space-between;
-    padding: 5px;
+    padding: 5px 0;
   }
   
   .header__icons {
@@ -419,7 +424,7 @@ body {
   
   /* remove extra empty space */
   .products {
-    padding: 0 10px;
+    padding: 0 5px;
   }
 }
 
